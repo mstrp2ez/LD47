@@ -23,11 +23,11 @@
 		Load(params){
 			this.image.onload=function(){
 				this.onLoad();
-				if(p_Params.success){
-					p_Params.success(this);
+				if(params.success){
+					params.success(this);
 				}
 			}.bind(this);
-			this.image.src=p_Params.src;
+			this.image.src=params.src;
 		}
 		Image(){
 			return this.image;

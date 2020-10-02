@@ -1,4 +1,11 @@
 {
 	"gui":"assets/gui/gui0.json",
-	"items":[]
+	"items":[
+		{
+			"type":"SpriteAnimation",
+			"x":100,
+			"y":100,
+			"animsrc":"assets/animations/robo1.json"
+		}
+	]
 }
