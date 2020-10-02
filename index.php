@@ -18,13 +18,23 @@
 	</section>
 	<section>
 		<h2>Chapter 2</h2>
-		<canvas></canvas>
+		<div id="canvas-container">
+		</div>
 	</section>
 	
 </main>
 <footer>
 
 </footer>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/canvas.js"></script>
+<script type="text/javascript" src="js/scene.js"></script>
+<script type="text/javascript" src="js/scenemanager.js"></script>
+<script type="text/javascript" src="js/gui.js"></script>
+<script type="text/javascript" src="js/session.js"></script>
+<script type="text/javascript" src="js/animation.js"></script>
+<script type="text/javascript" src="js/sprite.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
