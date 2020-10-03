@@ -9,6 +9,12 @@
 			"layer":2
 		},
 		{
+			"type":"Player",
+			"id":"Player",
+			"x":0,
+			"y":0
+		},
+		{
 			"type":"Planet",
 			"x":-512,
 			"y":0,
@@ -28,11 +34,78 @@
 		{
 			"type":"Rotator",
 			"x":0,
+			"y":-100,
+			"angle":90,
+			"rotationspeed":0.2,
+			"offsetx":0,
+			"offsety":512,
+			"src":"assets/sprites/cloud.png",
+			"layer":1
+		},
+		{
+			"type":"Rotator",
+			"x":0,
 			"y":-120,
 			"rotationspeed":0.1,
+			"angle":180,
 			"offsetx":0,
 			"offsety":512,
 			"src":"assets/sprites/building.png",
+			"layer":1
+		},
+		{
+			"type":"Rotator",
+			"x":0,
+			"y":-124,
+			"rotationspeed":0.1,
+			"angle":20,
+			"offsetx":0,
+			"offsety":512,
+			"src":"assets/sprites/tree.png",
+			"layer":1
+		},
+		{
+			"type":"Rotator",
+			"x":0,
+			"y":-105,
+			"rotationspeed":0.1,
+			"angle":120,
+			"offsetx":0,
+			"offsety":512,
+			"src":"assets/sprites/tree.png",
+			"layer":3
+		},
+		{
+			"type":"Rotator",
+			"x":0,
+			"y":-124,
+			"rotationspeed":0.1,
+			"angle":40,
+			"offsetx":0,
+			"offsety":512,
+			"src":"assets/sprites/tree.png",
+			"layer":1
+		},
+		{
+			"type":"Rotator",
+			"x":0,
+			"y":-50,
+			"rotationspeed":0.1,
+			"angle":-40,
+			"offsetx":0,
+			"offsety":512,
+			"src":"assets/sprites/house.png",
+			"layer":1
+		},
+		{
+			"type":"Monster",
+			"x":0,
+			"y":-28,
+			"rotationspeed":0.15,
+			"angle":40,
+			"offsetx":0,
+			"offsety":512,
+			"animsrc":"assets/animations/slime.json",
 			"layer":1
 		}
 	]

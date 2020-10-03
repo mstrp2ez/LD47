@@ -37,6 +37,9 @@
 <script type="text/javascript" src="js/sprite.js"></script>
 <script type="text/javascript" src="js/planet.js"></script>
 <script type="text/javascript" src="js/rotator.js"></script>
+<script type="text/javascript" src="js/player.js"></script>
+<script type="text/javascript" src="js/bullet.js"></script>
+<script type="text/javascript" src="js/monster.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

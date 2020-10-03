@@ -30,6 +30,11 @@
 			this.children.push(child);
 			child.parent=this;
 		}
+		removeChild(child){
+			let idx=this.children.indexOf(child);
+			if(idx==-1){return;}
+			this.children.splice(idx,1);
+		}
 		onRender(ctx,gui){
 			if(!this.noDraw){
 				var wc=this.calculateWorldCoordinates();
