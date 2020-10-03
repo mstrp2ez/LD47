@@ -35,6 +35,8 @@
 <script type="text/javascript" src="js/session.js"></script>
 <script type="text/javascript" src="js/animation.js"></script>
 <script type="text/javascript" src="js/sprite.js"></script>
+<script type="text/javascript" src="js/planet.js"></script>
+<script type="text/javascript" src="js/rotator.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

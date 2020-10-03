@@ -17,7 +17,7 @@
 	}
 	
 	Canvas.prototype.ClearScreen=function(){
-		this.context.fillStyle='#f0f';
+		this.context.fillStyle='#82CCC7';
 		this.context.fillRect(0,0,this.canvas.width,this.canvas.height);
 	}
 	

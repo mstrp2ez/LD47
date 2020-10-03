@@ -3,9 +3,37 @@
 	"items":[
 		{
 			"type":"SpriteAnimation",
-			"x":100,
-			"y":100,
-			"animsrc":"assets/animations/robo1.json"
+			"x":0,
+			"y":-25,
+			"animsrc":"assets/animations/robo1.json",
+			"layer":2
+		},
+		{
+			"type":"Planet",
+			"x":-512,
+			"y":0,
+			"layer":1,
+			"src":"assets/sprites/planet.png"
+		},
+		{
+			"type":"Rotator",
+			"x":0,
+			"y":-100,
+			"rotationspeed":0.2,
+			"offsetx":0,
+			"offsety":512,
+			"src":"assets/sprites/cloud.png",
+			"layer":3
+		},
+		{
+			"type":"Rotator",
+			"x":0,
+			"y":-120,
+			"rotationspeed":0.1,
+			"offsetx":0,
+			"offsety":512,
+			"src":"assets/sprites/building.png",
+			"layer":1
 		}
 	]
 }

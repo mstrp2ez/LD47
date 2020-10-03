@@ -46,7 +46,7 @@
 					// player.setLocation(spawn.x,spawn.y);
 					// window.Session.removeItem("spawn");
 				// }
-				window.Camera.setTarget(player);
+				//window.Camera.setTarget(player);
 			}
 			
 			window.Session.setItem('current_scene',src);
