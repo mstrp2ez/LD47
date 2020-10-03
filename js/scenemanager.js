@@ -126,6 +126,12 @@
 				this.items[i].postLoad();
 			}
 		}
+		removeChild(item){
+			let idx=this.items.indexOf(item);
+			if(idx==-1){return;}
+			this.items.splice(idx,1);
+			this.sort();
+		}
 	}
 	
 	SceneManager.prototype.append=function(item){

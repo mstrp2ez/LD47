@@ -1,8 +1,8 @@
 {
-	"spritesrc":"assets/animations/slime1.png",
+	"spritesrc":"assets/animations/explosion.png",
 	"animations":[
 		{
-			"name":"walk",
+			"name":"idle",
 			"frames":[{
 					"duration":100,
 					"x":0,
@@ -16,18 +16,20 @@
 					"y":0,
 					"w":32,
 					"h":32
-				}
-			]
-		},
-		{
-			"name":"dead",
-			"frames":[{
+				},
+				{
 					"duration":100,
 					"x":64,
 					"y":0,
 					"w":32,
 					"h":32
-				
+				},
+				{
+					"duration":100,
+					"x":96,
+					"y":0,
+					"w":32,
+					"h":32
 				}
 			]
 		}

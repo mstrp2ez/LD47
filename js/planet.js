@@ -6,6 +6,7 @@
 		constructor(){
 			super();
 			this.rotation=0;
+			this.mass=10;
 		}
 		onUpdate(time){
 			this.rotation-=0.1;
@@ -24,5 +25,7 @@
 			ctx.restore();
 		}
 	}
+	window.PLANET_CENTER_X=512;
+	window.PLANET_CENTER_Y=512;
 	window.Planet=Planet;
 })();

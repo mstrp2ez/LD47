@@ -8,16 +8,28 @@
 			super();
 			
 			this.bullets=[];
-			$(document).on('keydown.player',this.onKeydown.bind(this));
+			$('#canvas').on('click.player',this.onClick.bind(this));
 		}
-		onKeydown(event){
-			let key=event.which;
-			console.log(key);
-			if(key==32){
-				this.fireGun();
-			}
+		onClick(event){
+			let offsetX=event.offsetX;
+			let offsetY=event.offsetY;
+			
+			let hw=window.canvas.getCanvas().width/2;
+			let hh=window.canvas.getCanvas().height/2
+			
+			let dx=offsetX-(this.x+hw);
+			let dy=offsetY-(this.y+hh);
+			
+			let len=Math.sqrt(dx*dx+dy*dy);
+			let d=1/len;
+			
+			dx*=d;
+			dy*=d;
+			
+			this.fireGun(dx*len/100,dy*len/100);
+			event.preventDefault();
 		}
-		fireGun(){
+		fireGun(dx,dy){
 			let bullet=new Bullet();
 			bullet.loadFromProperties({
 				'x':this.x+20,
@@ -27,7 +39,9 @@
 				'offsety':512,
 				'rotationspeed':-2,
 				'angle':0,
-				'layer':3
+				'layer':3,
+				'velx':dx,
+				'vely':dy
 			});
 			this.bullets.push(bullet);
 			this.append(bullet);

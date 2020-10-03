@@ -98,15 +98,19 @@
 			"layer":1
 		},
 		{
-			"type":"Monster",
-			"x":0,
-			"y":-28,
-			"rotationspeed":0.15,
-			"angle":40,
-			"offsetx":0,
-			"offsety":512,
-			"animsrc":"assets/animations/slime.json",
-			"layer":1
+			"type":"MonsterSpawner",
+			"frequency":1000,
+			"template":{
+				"type":"Monster",
+				"x":0,
+				"y":-20,
+				"rotationspeed":0.15,
+				"angle":40,
+				"offsetx":0,
+				"offsety":512,
+				"animsrc":"assets/animations/slime.json",
+				"layer":1
+			}
 		}
 	]
 }
