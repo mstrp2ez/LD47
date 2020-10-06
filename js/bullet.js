@@ -1,19 +1,19 @@
 "use strict";
 
 (function(){
-	const PLANET_CENTER_X=0;
-	const PLANET_CENTER_Y=512;
-	const PLANET_RADIUS=512;
+	const PLANET_RADIUS=256;
 	class Bullet extends SpriteAnimation{
 		constructor(){
 			super();
 			this.lastBulletUpdate=undefined;
-			this.lifeSpan=5000;
+			this.lifeSpan=50000;
 			this.dead=false;
 			this.velx=2.7;
 			this.vely=-3;
 			this.mass=2;
 			this.dmg=1;
+			
+			this.planet=SceneManager.getItemsByType(Planet)[0];
 		}
 		loadFromProperties(params){
 			super.loadFromProperties(params);
@@ -30,14 +30,17 @@
 				this.spawnExplosion();
 				true;
 			}
+			if(this.dead){
+				return;
+			}
 			
-			let p=SceneManager.getItemsByType(Planet)[0];
+			let p=this.planet;
 			this.x+=this.velx;
 			this.y+=this.vely;
-			let dx=PLANET_CENTER_X-this.x;
-			let dy=PLANET_CENTER_Y-this.y;
+			let dx=this.planet.x-this.x;
+			let dy=this.planet.y-this.y;
 			let r=Math.sqrt(dx*dx+dy*dy);
-			let f=(0.4966743*(this.mass*p.mass)/r);
+			let f=(0.0000004966743*(this.mass*p.mass)/r);
 			let u=1/r;
 			dx*=u;
 			dy*=u;
@@ -59,18 +62,16 @@
 				let my=monster.y;
 				let theta=monster.rotation*Math.PI/180;
 				
-				let ox=mx+monster.offsetx;
-				let oy=my+monster.offsety;
+				let ox=this.planet.x;
+				let oy=this.planet.y;
 				
-				let newx=Math.cos(theta) * (mx-ox) - Math.sin(theta) * (my-oy) + ox;
-				let newy=Math.sin(theta) * (mx-ox) + Math.cos(theta) * (my-oy) + oy;
+				let obj=rotatedPosition(mx,my,ox,oy,theta);
 				
-				if(Math.abs(this.x-newx)<10){
-					if(Math.abs(this.y-newy)<10){
-						monster.onDamageTaken(this);
-						this.spawnExplosion();
-						this.dead=true;
-					}
+				let dist=distanceTo({'x':this.x,'y':this.y},{'x':obj.x,'y':obj.y});
+				if(dist<16){
+					monster.onDamageTaken(this);
+					this.spawnExplosion();
+					this.dead=true;
 				}
 			}
 		}
@@ -84,15 +85,26 @@
 			}
 		}
 		spawnExplosion(){
+			let player=SceneManager.getItemById("player");
+			let p=this.planet;
+			let dx1=player.x-p.x;
+			let dy1=player.y-p.y;
+			
+			let dx2=this.x-p.x;
+			let dy2=this.y-p.y;
+			
+			let angle = Math.atan2(dx1 * dx2 - dy1 * dx2, dx1 * dx2 + dy1 * dy2);
+			if (angle < 0) {
+				angle += Math.PI*2;
+			}
+			
 			let expl=new RotatorAnimation();
 			expl.loadFromProperties({
-				'x':this.x,
-				'y':this.y-30,
+				'x':500,
+				'y':115,
 				'animsrc':'assets/animations/explosion.json',
-				'angle':0,
-				'offsetx':0,
-				'offsety':512,
-				'rotationspeed':0.3
+				'angle':angle*180/Math.PI,
+				'rotationspeed':0.1
 			});
 			expl.registerEventlistener('end_of_animation',function(){
 				SceneManager.removeChild(expl);

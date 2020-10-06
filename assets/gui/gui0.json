@@ -1,4 +1,24 @@
 {
 	"widgets":[
+		{
+			"type":"Widget",
+			"name":"lostwidget",
+			"visible":false,
+			"x":350,
+			"y":150,
+			"w":100,
+			"h":50,
+			"bgcolor":"#444",
+			"widgets":[
+				{
+					"type":"TextWidget",
+					"name":"losttext",
+					"x":15,
+					"y":17,
+					"text":"You lost.."
+				}
+			]
+		}
+		
 	]
 }

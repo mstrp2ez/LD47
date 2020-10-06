@@ -1,6 +1,8 @@
 "use strict";
 
 (function(){
+
+	
 	const DEFAULT_FRAME_DURATION=33;
 	class AnimationFrame{
 		constructor(params){
@@ -22,6 +24,26 @@
 			}
 		}
 	}
+	
+	class SpriteCache{
+		
+		constructor(){
+			this.cache={};
+		}
+		Load(params){
+			let src=params.src;
+			if(src===undefined){return null;}
+			if(this.cache.hasOwnProperty(src)==-1){
+				let ns=new Sprite();
+				ns.Load(params);
+				this.cache[src]=ns;
+				return ns;
+			}else{
+				return this.cache[src];
+			}
+		}
+	}
+	window.SpriteCache=new SpriteCache();
 	
 	class SpriteAnimation extends SceneItem{
 		constructor(params){

@@ -25,6 +25,7 @@
 			this.w=!params.hasOwnProperty("w")?0:params.w;
 			this.h=!params.hasOwnProperty("h")?0:params.h;
 			this.layer=!params.hasOwnProperty("layer")?0:params.layer;
+			this.id=params.id==undefined?"":params.id;
 		}
 		append(child){
 			this.children.push(child);
@@ -141,20 +142,14 @@
 	
 	SceneManager.prototype.onRender=function(ctx){
 		var canvas=window.canvas.getCanvas();
-		let c=window.Camera;
+		/* let c=window.Camera;
 		ctx.translate(Math.floor(-c.centerx+(canvas.width/2)),Math.floor(-c.centery+(canvas.height/2)));
-		let inWorldScene=window.currentScene.getSceneProperty('worldscene');
+		let inWorldScene=window.currentScene.getSceneProperty('worldscene'); */
 		for(var i=0;i<this.items.length;i++){
 			let item=this.items[i];
-			if(inWorldScene){
-				if(this.isInViewport(item)){
-					this.items[i].onRender(ctx);
-				}
-			}else{ 
-				this.items[i].onRender(ctx);
-			}
+			this.items[i].onRender(ctx);
 		}
-		ctx.setTransform(1,0,0,1,0,0);
+		
 
 	}
 	

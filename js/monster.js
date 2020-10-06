@@ -12,16 +12,16 @@
 			this.deadDuration=5000;
 			this.shouldRemove=false;
 			this.life=1;
+			
+			this.player=SceneManager.getItemById("player");
+			this.planet=SceneManager.getItemById("planet");
 		}
-
+		postLoad(){
+			
+		}
 		onUpdate(time){
 			super.onUpdate(time);
-			/* let theta=this.rotation*Math.PI / 180;
-			let ox=this.x+this.offsetx;
-			let oy=this.y+this.offsety;
 			
-			let newx=Math.cos(theta) * (this.x-ox) - Math.sin(theta) * (this.y-oy) + ox;
-			let newy=Math.sin(theta) * (this.x-ox) + Math.cos(theta) * (this.y-oy) + oy; */
 			if(this.isBlinking){
 				if(!this.lastBlinkTimer){
 					this.lastBlinkTimer=time;
@@ -31,14 +31,32 @@
 				}
 			}
 			if(this.dead){
-				if(this.deadTimer=false){
+				if(this.deadTimer==false){
 					this.deadTimer=time;
 				}else if(time-this.deadTimer>this.deadDuration){
 					SceneManager.removeChild(this);
 					this.Unload();
 				}
 			}
-
+			if(!this.player||this.dead){return;}
+			let theta=this.rotation*Math.PI/180;
+			
+			let monsterPos=rotatedPosition(this.x,this.y,
+				this.planet.x,
+				this.planet.y,
+				theta);
+			let playerPos=rotatedPosition(this.player.x,this.player.y,
+				this.planet.x,
+				this.planet.y,
+				this.player.rotation*Math.PI/180);
+				
+			let c=window.canvas.getCanvas();
+			if(Math.abs(playerPos.x-monsterPos.x)<15){
+				if(Math.abs(playerPos.y-monsterPos.y)<25){
+					this.player.onDamageTaken(this);
+				}
+			}
+			
 		}
 		onRender(ctx){
 			ctx.save();
@@ -68,9 +86,26 @@
 	}
 	window.Monster=Monster;
 	
-	class MonsterSpawner{
-		
-		
+	class MonsterSpawner extends SceneItem{
+		constructor(){
+			super();
+			
+			this.frequency=1000;
+			this.template={};
+			this.lastUpdate=0;
+		}
+		loadFromProperties(params){
+			this.frequency=params.frequency==undefined?this.frequency:params.frequency;
+			this.template=params.template==undefined?{}:params.template;
+		}
+		onUpdate(time){
+			if(time-this.lastUpdate>this.frequency){
+				this.lastUpdate=time;
+				let nm=new Monster();
+				nm.loadFromProperties(this.template);
+				SceneManager.append(nm);
+			}
+		}
 	}
 	window.MonsterSpawner=MonsterSpawner;
 	

@@ -1,37 +1,104 @@
 {
-	"spritesrc":"assets/animations/walk.png",
+	"spritesrc":"assets/animations/robo1.png",
 	"animations":[
 		{
 			"name":"idle",
 			"frames":[{
-					"duration":100,
-					"x":18,
-					"y":64,
-					"w":22,
-					"h":36
+					"duration":3000,
+					"x":0,
+					"y":0,
+					"w":16,
+					"h":26
 				},
 				{
-					"duration":100,
-					"x":40,
-					"y":64,
-					"w":22,
-					"h":36
+					"duration":400,
+					"x":16,
+					"y":0,
+					"w":16,
+					"h":26
 				},
 				{
-					"duration":100,
-					"x":62,
-					"y":64,
-					"w":22,
-					"h":36
-				},
-				{
-					"duration":100,
-					"x":86,
-					"y":64,
-					"w":22,
-					"h":36
+					"duration":500,
+					"x":32,
+					"y":0,
+					"w":16,
+					"h":26
 				}
 			]
+		},
+		{
+			"name":"walk_right",
+			"frames":[{
+				"duration":100,
+				"x":0,
+				"y":26,
+				"w":16,
+				"h":26
+			},
+			{
+				"duration":100,
+				"x":16,
+				"y":26,
+				"w":16,
+				"h":26
+			},
+			{
+				"duration":100,
+				"x":32,
+				"y":26,
+				"w":16,
+				"h":26
+			},
+			{
+				"duration":100,
+				"x":48,
+				"y":26,
+				"w":16,
+				"h":26
+			}
+			]
+		},
+		{
+			"name":"walk_left",
+			"frames":[{
+				"duration":100,
+				"x":0,
+				"y":52,
+				"w":16,
+				"h":26
+			},
+			{
+				"duration":100,
+				"x":16,
+				"y":52,
+				"w":16,
+				"h":26
+			},
+			{
+				"duration":100,
+				"x":32,
+				"y":52,
+				"w":16,
+				"h":26
+			},
+			{
+				"duration":100,
+				"x":48,
+				"y":52,
+				"w":16,
+				"h":26
+			}
+			]
+		},
+		{
+			"name":"dead",
+			"frames":[{
+					"duration":100,
+					"x":104,
+					"y":0,
+					"w":24,
+					"h":36
+			}]
 		}
 	]
 }
